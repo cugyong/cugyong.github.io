@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="安卓注解处理器-processorcategories: 注解tags:  annotation processor 自动生成java文件  最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProcessor-sam">
+<meta name="description" content="title: 安卓注解处理器-processor categories: 注解tags:  annotation processor 自动生成java文件  最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProce">
 <meta name="keywords" content="Android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="夏勇的个人博客">
 <meta property="og:url" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/index.html">
 <meta property="og:site_name" content="夏勇的个人博客">
-<meta property="og:description" content="安卓注解处理器-processorcategories: 注解tags:  annotation processor 自动生成java文件  最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProcessor-sam">
+<meta property="og:description" content="title: 安卓注解处理器-processor categories: 注解tags:  annotation processor 自动生成java文件  最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProce">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/框架流程.png">
 <meta property="og:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/annotation.png">
-<meta property="og:updated_time" content="2019-01-04T10:34:55.480Z">
+<meta property="og:updated_time" content="2019-01-04T10:42:13.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="夏勇的个人博客">
-<meta name="twitter:description" content="安卓注解处理器-processorcategories: 注解tags:  annotation processor 自动生成java文件  最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProcessor-sam">
+<meta name="twitter:description" content="title: 安卓注解处理器-processor categories: 注解tags:  annotation processor 自动生成java文件  最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProce">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/框架流程.png">
 
 
@@ -370,13 +370,14 @@
       
 
       
-        <h1 id="安卓注解处理器-processor"><a href="#安卓注解处理器-processor" class="headerlink" title="安卓注解处理器-processor"></a>安卓注解处理器-processor</h1><p>categories: 注解<br>tags:</p>
+        <p>title: 安卓注解处理器-processor</p>
+<p>categories: 注解<br>tags:</p>
 <ul>
 <li>annotation</li>
 <li>processor</li>
 <li>自动生成java文件</li>
 </ul>
-<p>最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为<a href="https://github.com/cugyong/AnnotationProcessor-sample。如果喜欢的话，欢迎大家给star。" target="_blank" rel="noopener">https://github.com/cugyong/AnnotationProcessor-sample。如果喜欢的话，欢迎大家给star。</a></p>
+<p>最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为<a href="https://github.com/cugyong/AnnotationProcessor-sample" target="_blank" rel="noopener">https://github.com/cugyong/AnnotationProcessor-sample</a> ，如果喜欢的话，欢迎大家给star。<a id="more"></a></p>
 <h2 id="Demo需求描述"><a href="#Demo需求描述" class="headerlink" title="Demo需求描述"></a>Demo需求描述</h2><p>用户通过执行一个传入参数为A（类对象）的静态方法，该方法会最终把参数A中加了特定注解的所有方法执行一遍。</p>
 <h2 id="需求实现"><a href="#需求实现" class="headerlink" title="需求实现"></a>需求实现</h2><p><img src="/2019/01/04/安卓注解处理器-processor/框架流程.png" alt="框架流程"></p>
 <p>整个项目分为四个部分：</p>
@@ -551,7 +552,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安卓注解处理器-processor"><span class="nav-text">安卓注解处理器-processor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo需求描述"><span class="nav-text">Demo需求描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求实现"><span class="nav-text">需求实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解"><span class="nav-text">注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解处理器"><span class="nav-text">注解处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lib"><span class="nav-text">Lib</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Demo需求描述"><span class="nav-text">Demo需求描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需求实现"><span class="nav-text">需求实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注解"><span class="nav-text">注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解处理器"><span class="nav-text">注解处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lib"><span class="nav-text">Lib</span></a></li></ol></li></ol></div>
             
 
           </div>
