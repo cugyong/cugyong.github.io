@@ -105,14 +105,16 @@
         </hgroup>
 
         
+        <p class="header-subtitle">知耻而后勇，知弱而图强</p>
+        
 
         
-            <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-            </form>
-            <div id="local-search-result"></div>
-            <p class="no-result">No results found <i class="fa fa-spinner fa-pulse"></i></p>
+            <form id="search-form"> <!-- 搜索框相关 -->
+				<input type="text" id="local-search-input" name="q" results="0" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off">
+				<i class="fa fa-times" onclick="resetSearch()"></i> <!-- 清空/重置搜索框 -->
+			</form>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+			<p class="no-result">No results found </p> <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 -->
         
 
 
@@ -231,6 +233,8 @@
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">夏勇</a></h1>
             </hgroup>
+            
+            <p class="header-subtitle">知耻而后勇，知弱而图强</p>
             
             <nav class="header-menu">
                 <ul>
