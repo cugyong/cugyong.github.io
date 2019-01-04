@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="夏勇的个人博客">
 <meta property="og:description" content="最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProcessor-sample ，如果喜欢的话，欢迎大家给star。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/D:/blog/source/_posts/%E5%AE%89%E5%8D%93%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8-processor/%E6%A1%86%E6%9E%B6%E6%B5%81%E7%A8%8B.png">
-<meta property="og:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/D:/blog/source/_posts/%E5%AE%89%E5%8D%93%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8-processor/annotation.png">
-<meta property="og:updated_time" content="2019-01-04T11:15:21.602Z">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/框架流程.png">
+<meta property="og:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/annotation.png">
+<meta property="og:updated_time" content="2019-01-04T12:21:00.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="安卓注解处理器-processor">
 <meta name="twitter:description" content="最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为https://github.com/cugyong/AnnotationProcessor-sample ，如果喜欢的话，欢迎大家给star。">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/D:/blog/source/_posts/%E5%AE%89%E5%8D%93%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8-processor/%E6%A1%86%E6%9E%B6%E6%B5%81%E7%A8%8B.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/04/安卓注解处理器-processor/框架流程.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -111,7 +111,7 @@
 
         
             <form id="search-form">
-            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="">
             <i class="fa fa-times" onclick="resetSearch()"></i>
             </form>
             <div id="local-search-result"></div>
@@ -306,7 +306,7 @@
           
         <p>最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为<a href="https://github.com/cugyong/AnnotationProcessor-sample" target="_blank" rel="noopener">https://github.com/cugyong/AnnotationProcessor-sample</a> ，如果喜欢的话，欢迎大家给star。<a id="more"></a></p>
 <h2 id="Demo需求描述"><a href="#Demo需求描述" class="headerlink" title="Demo需求描述"></a>Demo需求描述</h2><p>用户通过执行一个传入参数为A（类对象）的静态方法，该方法会最终把参数A中加了特定注解的所有方法执行一遍。</p>
-<h2 id="需求实现"><a href="#需求实现" class="headerlink" title="需求实现"></a>需求实现</h2><p><img src="/2019/01/04/安卓注解处理器-processor/D:/blog/source/_posts/%E5%AE%89%E5%8D%93%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8-processor/%E6%A1%86%E6%9E%B6%E6%B5%81%E7%A8%8B.png" alt="框架流程"></p>
+<h2 id="需求实现"><a href="#需求实现" class="headerlink" title="需求实现"></a>需求实现</h2><p><img src="/2019/01/04/安卓注解处理器-processor/框架流程.png" alt="框架流程"></p>
 <p>整个项目分为四个部分：</p>
 <ul>
 <li>注解–要使用的注解类型，这部分通常也可以放在lib中；</li>
@@ -316,7 +316,7 @@
 </ul>
 <p>首先新建一个安卓工程，点击运行展示的是hello world。</p>
 <h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><p>在上述工程中new-&gt;Module-&gt;Java Library，新建一个Java Library Module，命名为annotation。在该Module下创建一个文件AnnotationTest.java，</p>
-<p><img src="/2019/01/04/安卓注解处理器-processor/D:/blog/source/_posts/%E5%AE%89%E5%8D%93%E6%B3%A8%E8%A7%A3%E5%A4%84%E7%90%86%E5%99%A8-processor/annotation.png" alt="1546591844724"></p>
+<p><img src="/2019/01/04/安卓注解处理器-processor/annotation.png" alt="annotation"></p>
 <p>AnnotationTest.java里面代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Retention(RetentionPolicy.CLASS)</span><br><span class="line">@Target(ElementType.METHOD)</span><br><span class="line">public @interface AnnotationTest &#123;</span><br><span class="line">    String name() default &quot;test&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>1、注解@Retention按生命周期来划分可分为3类：</p>
@@ -358,7 +358,7 @@
         <p><span>本文标题:</span><a href="/2019/01/04/安卓注解处理器-processor/">安卓注解处理器-processor</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">夏勇</a></p>
         <p><span>发布时间:</span>2019-01-04, 19:12:12</p>
-        <p><span>最后更新:</span>2019-01-04, 19:15:21</p>
+        <p><span>最后更新:</span>2019-01-04, 20:21:00</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/04/安卓注解处理器-processor/" title="安卓注解处理器-processor">http://yoursite.com/2019/01/04/安卓注解处理器-processor/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/04/安卓注解处理器-processor/　　作者: 夏勇" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
