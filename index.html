@@ -292,7 +292,6 @@
           
         <p>最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。<a href="https://github.com/greenrobot/EventBus" target="_blank" rel="noopener">EventBus GitHub地址</a></p>
 <h1 id="EventBus的基本流程"><a href="#EventBus的基本流程" class="headerlink" title="EventBus的基本流程"></a>EventBus的基本流程</h1><p><img src="/2019/01/08/EventBus3源码解析-01/eventbus调用流程.png" alt="基本流程"></p>
-<p>​                                        官网流程图</p>
 <p>从官网流程图可以看出，EventBus使用的是观察者模式，Publisher(发布者)调用post方法将事件发送给订阅了该事件的Subscriber(订阅者)。</p>
 <ul>
 <li>Publisher(发布者)—调用post方法发布事件的类就是发布者</li>

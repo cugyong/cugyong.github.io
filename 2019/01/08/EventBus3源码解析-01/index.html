@@ -15,19 +15,19 @@
 
 
 
-<meta name="description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址 EventBus的基本流程 ​                                        官网流程图 从官网流程图可以看出，EventBus使用的是观察者模式，Publi">
+<meta name="description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址 EventBus的基本流程 从官网流程图可以看出，EventBus使用的是观察者模式，Publisher(发布者)调用post方法将事件发送给订阅了该事件的Subscriber(订阅者)。">
 <meta name="keywords" content="EventBus3.0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventBus3.0源码解析-01">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/EventBus3源码解析-01/index.html">
 <meta property="og:site_name" content="夏勇的个人博客">
-<meta property="og:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址 EventBus的基本流程 ​                                        官网流程图 从官网流程图可以看出，EventBus使用的是观察者模式，Publi">
+<meta property="og:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址 EventBus的基本流程 从官网流程图可以看出，EventBus使用的是观察者模式，Publisher(发布者)调用post方法将事件发送给订阅了该事件的Subscriber(订阅者)。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/01/08/EventBus3源码解析-01/eventbus调用流程.png">
-<meta property="og:updated_time" content="2019-01-08T11:44:12.193Z">
+<meta property="og:updated_time" content="2019-01-08T11:50:05.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventBus3.0源码解析-01">
-<meta name="twitter:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址 EventBus的基本流程 ​                                        官网流程图 从官网流程图可以看出，EventBus使用的是观察者模式，Publi">
+<meta name="twitter:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址 EventBus的基本流程 从官网流程图可以看出，EventBus使用的是观察者模式，Publisher(发布者)调用post方法将事件发送给订阅了该事件的Subscriber(订阅者)。">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/08/EventBus3源码解析-01/eventbus调用流程.png">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -303,7 +303,6 @@
           
         <p>最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。<a href="https://github.com/greenrobot/EventBus" target="_blank" rel="noopener">EventBus GitHub地址</a></p>
 <h1 id="EventBus的基本流程"><a href="#EventBus的基本流程" class="headerlink" title="EventBus的基本流程"></a>EventBus的基本流程</h1><p><img src="/2019/01/08/EventBus3源码解析-01/eventbus调用流程.png" alt="基本流程"></p>
-<p>​                                        官网流程图</p>
 <p>从官网流程图可以看出，EventBus使用的是观察者模式，Publisher(发布者)调用post方法将事件发送给订阅了该事件的Subscriber(订阅者)。</p>
 <ul>
 <li>Publisher(发布者)—调用post方法发布事件的类就是发布者</li>
@@ -353,7 +352,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">夏勇</a></p>
         <p><span>发布时间:</span>2019-01-08, 15:34:19</p>
-        <p><span>最后更新:</span>2019-01-08, 19:44:12</p>
+        <p><span>最后更新:</span>2019-01-08, 19:50:05</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/EventBus3源码解析-01/" title="EventBus3.0源码解析-01">http://yoursite.com/2019/01/08/EventBus3源码解析-01/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/EventBus3源码解析-01/　　作者: 夏勇" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
