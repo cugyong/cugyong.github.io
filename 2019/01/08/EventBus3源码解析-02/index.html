@@ -15,18 +15,18 @@
 
 
 
-<meta name="description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);  1EventBus.getDefault().unregister(Object);  1EventBus.getDefault().post(Object);   本文将通过reg">
+<meta name="description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);">
 <meta name="keywords" content="EventBus3.0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EventBus3源码解析-02">
 <meta property="og:url" content="http://yoursite.com/2019/01/08/EventBus3源码解析-02/index.html">
 <meta property="og:site_name" content="夏勇的个人博客">
-<meta property="og:description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);  1EventBus.getDefault().unregister(Object);  1EventBus.getDefault().post(Object);   本文将通过reg">
+<meta property="og:description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-09T04:24:34.422Z">
+<meta property="og:updated_time" content="2019-01-09T05:43:12.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventBus3源码解析-02">
-<meta name="twitter:description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);  1EventBus.getDefault().unregister(Object);  1EventBus.getDefault().post(Object);   本文将通过reg">
+<meta name="twitter:description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -302,13 +302,14 @@
         <p><a href="https://cugyong.github.io/2019/01/08/EventBus3%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-01/#more" target="_blank" rel="noopener">EventBus3源码解析-01</a>这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为</p>
 <ul>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EventBus.getDefault().register(Object);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 </li>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EventBus.getDefault().unregister(Object);</span><br></pre></td></tr></table></figure>
 </li>
 <li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">EventBus.getDefault().post(Object);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>本文将通过register入口方法及其逻辑，分析EventBus源码。<a id="more"></a></p>
+<p>本文将通过register入口方法及其逻辑，分析EventBus源码。</p>
 <p>EventBus的register方法实现如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void register(Object subscriber) &#123;</span><br><span class="line">    Class&lt;?&gt; subscriberClass = subscriber.getClass();</span><br><span class="line">    List&lt;SubscriberMethod&gt; subscriberMethods = subscriberMethodFinder.findSubscriberMethods(subscriberClass);</span><br><span class="line">    synchronized (this) &#123;</span><br><span class="line">        for (SubscriberMethod subscriberMethod : subscriberMethods) &#123;</span><br><span class="line">            subscribe(subscriber, subscriberMethod);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>register函数主要实现了两个功能，1、将订阅类中所有订阅方法收集；2、按一定规则保存收集的信息。</p>
@@ -351,7 +352,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/EventBus3源码解析-02/">EventBus3源码解析-02</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">夏勇</a></p>
         <p><span>发布时间:</span>2019-01-08, 20:22:12</p>
-        <p><span>最后更新:</span>2019-01-09, 12:24:34</p>
+        <p><span>最后更新:</span>2019-01-09, 13:43:12</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/EventBus3源码解析-02/" title="EventBus3源码解析-02">http://yoursite.com/2019/01/08/EventBus3源码解析-02/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/EventBus3源码解析-02/　　作者: 夏勇" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
