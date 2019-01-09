@@ -14,21 +14,19 @@
 <meta name="author" content="夏勇">
 
 
-    
-    
 
-
-<meta name="description" content="知耻而后勇，知弱而图强">
-<meta name="keywords" content="Android">
-<meta property="og:type" content="website">
-<meta property="og:title" content="夏勇的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);  1EventBus.getDefault().unregister(Object);  1EventBus.getDefault().post(Object);   本文将通过reg">
+<meta name="keywords" content="EventBus3.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EventBus3源码解析-02">
+<meta property="og:url" content="http://yoursite.com/2019/01/08/EventBus3源码解析-02/index.html">
 <meta property="og:site_name" content="夏勇的个人博客">
-<meta property="og:description" content="知耻而后勇，知弱而图强">
+<meta property="og:description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);  1EventBus.getDefault().unregister(Object);  1EventBus.getDefault().post(Object);   本文将通过reg">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-09T03:27:18.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夏勇的个人博客">
-<meta name="twitter:description" content="知耻而后勇，知弱而图强">
+<meta name="twitter:title" content="EventBus3源码解析-02">
+<meta name="twitter:description" content="EventBus3源码解析-01这篇文章简单的介绍了EventBus的使用流程，我们知道EventBus有三个主要入口方法，分别为  1EventBus.getDefault().register(Object);  1EventBus.getDefault().unregister(Object);  1EventBus.getDefault().post(Object);   本文将通过reg">
 
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
@@ -56,13 +54,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 
-    <style> .article { opacity: 0;} </style>
-
 
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>夏勇的个人博客</title>
+<title>EventBus3源码解析-02 | 夏勇的个人博客</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -71,8 +67,8 @@
     var yiliaConfig = {
         fancybox: true,
         animate: true,
-        isHome: true,
-        isPost: false,
+        isHome: false,
+        isPost: true,
         isArchive: false,
         isTag: false,
         isCategory: false,
@@ -259,9 +255,7 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我">
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-EventBus3源码解析-02" class="article article-type-post" itemscope="" itemprop="blogPost">
+      <div class="body-wrap"><article id="post-EventBus3源码解析-02" class="article article-type-post" itemscope="" itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2019/01/08/EventBus3源码解析-02/" class="article-date">
@@ -279,12 +273,27 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/08/EventBus3源码解析-02/">EventBus3源码解析-02</a>
+    <h1 class="article-title" itemprop="name">
+      EventBus3源码解析-02
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/EventBus3-0/">EventBus3.0</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus3-0/">EventBus3.0</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -335,221 +344,85 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/EventBus3-0/">EventBus3.0</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus3-0/">EventBus3.0</a></li></ul>
-    </div>
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-EventBus3源码解析-01" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/08/EventBus3源码解析-01/" class="article-date">
-      <time datetime="2019-01-08T07:34:19.000Z" itemprop="datePublished">2019-01-08</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。<a href="https://github.com/greenrobot/EventBus" target="_blank" rel="noopener">EventBus GitHub地址</a></p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/EventBus3-0/">EventBus3.0</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/EventBus3-0/">EventBus3.0</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/01/08/EventBus3源码解析-01/#more">阅读全文 >></a>
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/01/08/EventBus3源码解析-02/">EventBus3源码解析-02</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">夏勇</a></p>
+        <p><span>发布时间:</span>2019-01-08, 20:22:12</p>
+        <p><span>最后更新:</span>2019-01-09, 11:27:18</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/01/08/EventBus3源码解析-02/" title="EventBus3源码解析-02">http://yoursite.com/2019/01/08/EventBus3源码解析-02/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/EventBus3源码解析-02/　　作者: 夏勇" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-android开发-常用网址" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/05/android开发-常用网址/" class="article-date">
-      <time datetime="2019-01-05T09:22:28.000Z" itemprop="datePublished">2019-01-05</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/05/android开发-常用网址/">android开发-常用网址</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h5 id="android-development-网址"><a href="#android-development-网址" class="headerlink" title="android development 网址"></a>android development 网址</h5><ul>
-<li><a href="https://developer.android.com/guide/" target="_blank" rel="noopener">https://developer.android.com/guide/</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-安卓注解处理器-processor" class="article article-type-post" itemscope="" itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2019/01/04/安卓注解处理器-processor/" class="article-date">
-      <time datetime="2019-01-04T11:12:12.000Z" itemprop="datePublished">2019-01-04</time>
-</a>
-
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/04/安卓注解处理器-processor/">安卓注解处理器-processor</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>最近在学习安卓开源框架发现，很多的开源框架都使用到了注解处理器，例如EventBus3.0。本文通过一个简单的Demo来介绍如何使用注解处理器。Demo链接为<a href="https://github.com/cugyong/AnnotationProcessor-sample" target="_blank" rel="noopener">https://github.com/cugyong/AnnotationProcessor-sample</a> ，如果喜欢的话，欢迎大家给star。</p>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/注解/">注解</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/annotation、processor、自动生成java文件/">annotation、processor、自动生成java文件</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a href="/2019/01/04/安卓注解处理器-processor/#more">阅读全文 >></a>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target="_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
         </p>
-      
-      <div class="clearfix"></div>
     </div>
-    
-  </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2019/01/08/EventBus3源码解析-01/">
+                    EventBus3.0源码解析-01
+                </a>
+            </div>
+        
+    </nav>
+
   
 </article>
 
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#订阅方法收集"><span class="toc-number">1.</span> <span class="toc-text">订阅方法收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"EventBus3源码解析-02　| 夏勇的个人博客　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
 
 
 
@@ -557,9 +430,33 @@
 
 
 
+    
 
-  
-  
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2019/01/08/EventBus3源码解析-01/" title="下一篇: EventBus3.0源码解析-01">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/EventBus3源码解析-02/">EventBus3源码解析-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/05/android开发-常用网址/">android开发-常用网址</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/04/安卓注解处理器-processor/">安卓注解处理器-processor</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
