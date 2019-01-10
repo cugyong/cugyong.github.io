@@ -24,7 +24,7 @@
 <meta property="og:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/01/08/EventBus3源码解析-01/eventbus调用流程.png">
-<meta property="og:updated_time" content="2019-01-10T02:40:39.770Z">
+<meta property="og:updated_time" content="2019-01-10T03:13:47.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventBus3.0源码解析-01">
 <meta name="twitter:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址">
@@ -327,7 +327,7 @@
 <p>BACKGROUND：表示订阅方法运行在后台线程。如果当前发布事件的线程是后台线程，则订阅方法直接运行，否则，订阅方法将会运行在一个后台线程中，该后台线程没有停止的话将会负责运行所有有BACKGROUND标识的订阅方法；</p>
 <p>ASYNC：表示订阅方法将总是运行在一个新的后台线程，即即使当前发布事件的线程是后台线程，它也会运行在一个新的后台线程。</p>
 </li>
-<li><p>priority—表示该方法的优先级，默认是0。当发布事件的时候，同一线程中，优先级值越大的方法，会被更早调用；</p>
+<li><p>priority—表示该方法的优先级，默认是0。当发布事件的时候，同一线程中，优先级值越大的方法，会被更早调用。<strong>注意，sticky事件除外，sticky事件是通过反射先被找到的订阅方法先被通知</strong>。</p>
 </li>
 <li><p>sticky—如果为true，将会发送最新的sticky事件给相应的订阅者，默认为false；</p>
 <p>sticky的使用一般为：如果用户希望先调用postSticky发布事件，再注册订阅者接收该事件，则可以指定sticky为true。</p>
@@ -354,7 +354,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">夏勇</a></p>
         <p><span>发布时间:</span>2019-01-08, 15:34:19</p>
-        <p><span>最后更新:</span>2019-01-10, 10:40:39</p>
+        <p><span>最后更新:</span>2019-01-10, 11:13:47</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/EventBus3源码解析-01/" title="EventBus3.0源码解析-01">http://yoursite.com/2019/01/08/EventBus3源码解析-01/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/EventBus3源码解析-01/　　作者: 夏勇" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
