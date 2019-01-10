@@ -24,7 +24,7 @@
 <meta property="og:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/01/08/EventBus3源码解析-01/eventbus调用流程.png">
-<meta property="og:updated_time" content="2019-01-08T11:58:10.031Z">
+<meta property="og:updated_time" content="2019-01-10T02:40:39.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="EventBus3.0源码解析-01">
 <meta name="twitter:description" content="最近在学习EventBus源码，本着学习完之后要及时总结，方便以后回顾的心态，这里做一个系列来分析EventBus的源码。本系列讨论的都是最新的EventBus3.0的源码。EventBus GitHub地址">
@@ -324,7 +324,7 @@
 <p>POSTING：表示订阅方法运行在当前发布事件的线程(调用post方法的线程)；</p>
 <p>MAIN：表示订阅方法运行在UI线程。如果当前发布事件的线程是UI线程，则订阅方法直接运行，否则，事件入队列等待触发订阅方法(入队列的方式不阻塞线程)；</p>
 <p>MAIN_ORDERED：表示订阅方法运行在UI线程。它和MAIN的区别是，事件会直接入队列等待触发订阅方法；</p>
-<p>BACKGROUND：表示订阅方法运行在后台线程。如果当前发布事件的线程是后台线程，则订阅方法直接运行，否则，订阅方法将会运行在一个唯一的后台线程中，该唯一的后台线程将会负责运行所有有BACKGROUND标识的订阅方法；</p>
+<p>BACKGROUND：表示订阅方法运行在后台线程。如果当前发布事件的线程是后台线程，则订阅方法直接运行，否则，订阅方法将会运行在一个后台线程中，该后台线程没有停止的话将会负责运行所有有BACKGROUND标识的订阅方法；</p>
 <p>ASYNC：表示订阅方法将总是运行在一个新的后台线程，即即使当前发布事件的线程是后台线程，它也会运行在一个新的后台线程。</p>
 </li>
 <li><p>priority—表示该方法的优先级，默认是0。当发布事件的时候，同一线程中，优先级值越大的方法，会被更早调用；</p>
@@ -354,7 +354,7 @@
         <p><span>本文标题:</span><a href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">夏勇</a></p>
         <p><span>发布时间:</span>2019-01-08, 15:34:19</p>
-        <p><span>最后更新:</span>2019-01-08, 19:58:10</p>
+        <p><span>最后更新:</span>2019-01-10, 10:40:39</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/01/08/EventBus3源码解析-01/" title="EventBus3.0源码解析-01">http://yoursite.com/2019/01/08/EventBus3源码解析-01/</a>
             <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2019/01/08/EventBus3源码解析-01/　　作者: 夏勇" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -460,7 +460,7 @@
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/EventBus3源码解析-03/">EventBus3.0源码解析-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/EventBus3源码解析-02/">EventBus3.0源码解析-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/05/android开发-常用网址/">android开发-常用网址</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/04/安卓注解处理器-processor/">安卓注解处理器-processor</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/01/10/EventBus3源码解析-04/">EventBus3.0源码解析-04</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/09/EventBus3源码解析-03/">EventBus3.0源码解析-03</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/EventBus3源码解析-02/">EventBus3.0源码解析-02</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/08/EventBus3源码解析-01/">EventBus3.0源码解析-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/05/android开发-常用网址/">android开发-常用网址</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/04/安卓注解处理器-processor/">安卓注解处理器-processor</a></li></ul>
 
 
 
